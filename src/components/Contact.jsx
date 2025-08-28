@@ -1,0 +1,65 @@
+import { motion } from "framer-motion"
+
+export const Contact = () => {
+    return (
+        <motion.section id="contact" 
+            className="contact" 
+            inital={{ opacity: 0 }} 
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+        >
+            <div className="contact-container">
+                <div className="contact-content">
+                    <div className="contact-grid">
+                        <div className="contact-grid-information">
+                            <h1 className="contact-information-title">Contact</h1>
+                            <p className="contact-information-text">
+                                I'd love to connect! Whether you have questions about my work, 
+                                opportunities to collaborate, or just want to chat about technology, feel free to reach out. You can 
+                                contact me by email or connect with me on LinkedIn, and I'll get back to you as soon as possible.
+                            </p>
+                            <p className="contact-information-subtext">
+                                Located in Little Rock, Arkansas — open to in-person opportunities and connections.
+                            </p>
+                            <div className="contact-information-button">
+                                <img src="/Paperclip.png" className="contact-information-paperclip"/>
+                                <h3 className="contact-information-button-text">Get Resume</h3>
+                            </div>
+                            <div className="contact-information-icons">
+                                <img src="/_Github.png"/>
+                                <img src="/_Linkedin.png"/>
+                            </div>
+                        </div>
+                        <div className="contact-grid-form">
+                            <div className="contact-form-title">
+                                <h2 className="contact-title-1">Contact</h2>
+                                <h1 className="contact-title-2">Form</h1>
+                            </div>
+                            <form className="form">
+                                <label>
+                                    <h3>Your Email Address</h3>
+                                    <input type="text" name="email" placeholder="name@example.com" required/>
+                                    <p>Please Enter your vaild email.</p>
+                                </label>
+                                <label>
+                                    <h3>Subject</h3>
+                                    <input type="text" name="subject" placeholder="Enter the subject of your message" required/>
+                                </label>
+                                <label>
+                                    <h3>Message</h3>
+                                    <textarea name="message" placeholder="Type your message here..." required/>
+                                </label>
+                                <label>
+                                    <button>
+                                        <img src="/Send.png"/>
+                                        <h1>Send</h1>
+                                    </button>
+                                </label>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </motion.section>
+    );
+};
