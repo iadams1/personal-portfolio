@@ -32,12 +32,12 @@ function App() {
 
         {/* Footer */}
         <>
-          <p> &copy; 2025 IsaiahAdams. All rights reserved.</p>
+        <p className="footer"> &copy; 2025 Isaiah Adams. All rights reserved.</p>
         </>
-
+        
       </div>
 
-      {/* */}
+      {/* Navigation & Sidebar Pages  */}
       <NavBar />
       <Sidebar />
 

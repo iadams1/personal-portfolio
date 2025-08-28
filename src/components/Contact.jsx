@@ -35,26 +35,24 @@ export const Contact = () => {
                                 <h2 className="contact-title-1">Contact</h2>
                                 <h1 className="contact-title-2">Form</h1>
                             </div>
-                            <form className="form">
+                            <form className="contact-form">
                                 <label>
                                     <h3 className="contact-form-text">Your Email Address</h3>
-                                    <input type="text" name="email" placeholder="name@example.com" className="form-email" required/>
+                                    <input type="email" name="email" placeholder="name@example.com" className="form-email" required />
                                     <p className="contact-form-subtext">Please Enter your vaild email.</p>
                                 </label>
                                 <label>
                                     <h3 className="contact-form-text">Subject</h3>
-                                    <input type="text" name="subject" placeholder="Enter the subject of your message" required/>
+                                    <input type="text" name="subject" placeholder="Enter the subject of your message" className="form-subject" required/>
                                 </label>
                                 <label>
                                     <h3 className="contact-form-text">Message</h3>
-                                    <textarea name="message" placeholder="Type your message here..." required/>
+                                    <textarea name="message" placeholder="Type your message here..." className="form-message" required/>
                                 </label>
-                                <label>
-                                    <button>
-                                        <img src="/Send.png"/>
-                                        <h1>Send</h1>
-                                    </button>
-                                </label>
+                                <button className="form-button">
+                                    <img src="/Send.png" className="form-submit-icon"/>
+                                    <span className="form-submit-text">Send</span>
+                                </button>
                             </form>
                         </div>
                     </div>
