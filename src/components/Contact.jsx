@@ -37,16 +37,16 @@ export const Contact = () => {
                             </div>
                             <form className="form">
                                 <label>
-                                    <h3>Your Email Address</h3>
-                                    <input type="text" name="email" placeholder="name@example.com" required/>
-                                    <p>Please Enter your vaild email.</p>
+                                    <h3 className="contact-form-text">Your Email Address</h3>
+                                    <input type="text" name="email" placeholder="name@example.com" className="form-email" required/>
+                                    <p className="contact-form-subtext">Please Enter your vaild email.</p>
                                 </label>
                                 <label>
-                                    <h3>Subject</h3>
+                                    <h3 className="contact-form-text">Subject</h3>
                                     <input type="text" name="subject" placeholder="Enter the subject of your message" required/>
                                 </label>
                                 <label>
-                                    <h3>Message</h3>
+                                    <h3 className="contact-form-text">Message</h3>
                                     <textarea name="message" placeholder="Type your message here..." required/>
                                 </label>
                                 <label>

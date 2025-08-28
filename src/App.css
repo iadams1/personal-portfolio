@@ -502,6 +502,7 @@ body {
   position: relative;
   z-index: 2;
   line-height: 40px;
+  justify-content: center;
 }
 
 .skills-grid {
@@ -521,6 +522,7 @@ body {
   flex-direction: column;
   height: 100%;
   gap: 40px;
+  padding-top: 120px;
 }
 
 .skills-grid-text {
@@ -532,6 +534,7 @@ body {
   flex-direction: column;
   height: 100%;
   gap: 40px;
+  padding-top: 120px;
 }
 
 .skills-grid-other {
@@ -541,6 +544,7 @@ body {
   padding: 50px;
   align-content: center;
   padding-right: 330px;
+  margin-top: -160px;
 }
 
 .skills-title {
@@ -580,18 +584,18 @@ body {
 }
 
 .back-text-10 {
-  bottom: 450px;
+  bottom: 600px;
   left: -270px;
 }
 
 .back-text-11 {
   right: 400px;
-  bottom: 90px;
+  bottom: 240px;
 }
 
 .back-text-12 {
   right: -250px;
-  top: 200px;
+  top: 350px;
 }
 
 /* Projects Section */
@@ -635,9 +639,9 @@ body {
   display: flex;
   width: 2000px;
   height: 700px;
-  padding-right: 200px;
-  padding-left: 100px;
-  gap: 200px;
+  padding-right: 300px;
+  padding-left: 200px;
+  gap: 80px;
 }
 
 .contact-grid-information {
@@ -645,8 +649,8 @@ body {
   width: 100%;
   display: flex;
   gap: 30px;
-  padding: 80px;
   justify-content: center;
+  padding: 80px;
 }
 
 .contact-information-title{
@@ -657,9 +661,9 @@ body {
 
 .contact-information-text {
   font-weight: 400;
-  margin-right: 14px;
-  margin-left: 14px;
   font-size: 18px;
+  margin-right: 25px;
+  margin-left: 25px;
 }
 
 .contact-information-subtext {
@@ -706,10 +710,14 @@ body {
 }
 
 .contact-grid-form {
-  width: 2500px;
+  width: 1500px;
   justify-content: center;
   display: flex;
   flex-direction: column;
+  background-color: #1b1b1b;
+  gap: 45px;
+  border-radius: 40px;
+  box-shadow: -10px 10px 20px #1b1b1b99;
 }
 
 .contact-form-title {
@@ -735,4 +743,25 @@ body {
 .form {
   flex-direction: column;
   display: flex;
+  line-height: 30px;
+  padding: 50px;
+}
+
+.contact-form-text {
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
+.contact-form-subtext {
+   text-align: left;
+   font-size: 15px;
+   font-style: italic;
+   color: rgba(254, 254, 254, 0.761);
+}
+
+.form-email {
+  display: block;
+  
 }
