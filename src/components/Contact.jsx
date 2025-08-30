@@ -1,6 +1,32 @@
 import { motion } from "framer-motion"
+import React, { useRef } from "react"
+import emailjs from "@emailjs/browser"
 
 export const Contact = () => {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs
+        .sendForm(
+            "service_4dovo1g",      
+            "template_5xg6wci",     
+            form.current,
+            "ux_wYzMPC2pH23eYg"    
+        )
+        .then(
+            (result) => {
+            console.log("SUCCESS!", result.text);
+            alert("Message sent!");
+            },
+            (error) => {
+            console.log("FAILED...", error.text);
+            alert("Something went wrong.");
+            }
+        );
+    };
+
     return (
         <motion.section id="contact" 
             className="contact" 
@@ -67,7 +93,11 @@ export const Contact = () => {
                                 <h2 className="contact-title-1">Contact</h2>
                                 <h1 className="contact-title-2">Form</h1>
                             </div>
-                            <form className="contact-form">
+                            <form className="contact-form" ref={form} onSubmit={sendEmail}>
+                                <label>
+                                    <h3 className="contact-form-text">Your Name</h3>
+                                    <input type="text" name="name" placeholder="First & Last Name" className="form-email" required />
+                                </label>
                                 <label>
                                     <h3 className="contact-form-text">Your Email Address</h3>
                                     <input type="email" name="email" placeholder="name@example.com" className="form-email" required />
@@ -85,6 +115,7 @@ export const Contact = () => {
                                     className="form-button"
                                     whileHover={{ scale: 1.10 }}
                                     whileTap={{ scale: 0.95 }}
+                                    type="submit"
                                 >
                                     <div className="form-submit-icon">
                                         <img src="/Send.png"/>   
