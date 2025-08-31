@@ -16,7 +16,11 @@ export const LatestProjects = () => {
             id: key,
             ...data[key]
             }));
-            setProjects(projectsArray);
+
+            const sortedProjects = projectsArray.sort((a, b) => 
+                new Date(b.Date) - new Date(a.Date)
+            );
+            setProjects(sortedProjects.slice(0, 3));
         }
         });
     }, []);
@@ -41,15 +45,17 @@ export const LatestProjects = () => {
                         </div>
                         <div className="latestprojects-projects">
                             {projects.map(project => (
-                                <div key={project.id} className="project-card">
-                                    <img src={project.Image} alt={project.Title} />
-                                    <h2>{project.Title}</h2>
-                                    <div className="languages">
+                                <div key={project.id} className="latestproject-card">
+                                    <div className="latestproject-card-image container">
+                                        <img src={project.Image} alt={project.Title} className="latestproject-card-image"/>
+                                    </div>
+                                    <h2 className="latestproject-card-title">{project.Title}</h2>
+                                    <div className="latestproject-languages">
                                         {project.Languages.slice(0, 3).map((lang, idx) => (
-                                            <p key={idx}>{lang}</p>
+                                            <p key={idx} className="latestproject-languages-text">{lang}</p>
                                         ))}
                                         {project.Languages.length > 3 && (
-                                            <p>+{project.Languages.length - 3}</p>
+                                            <p className="latestproject-languages-extras">+{project.Languages.length - 3}</p>
                                         )}
                                     </div>
                                 </div>
