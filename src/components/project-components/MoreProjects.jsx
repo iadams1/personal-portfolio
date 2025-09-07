@@ -1,11 +1,29 @@
 import { animate, motion, scale } from "framer-motion"
 import { useState, useEffect, useRef } from "react";
-import { ref, onValue } from "firebase/database";
+import { ref, onValue, get } from "firebase/database";
 import { database } from "../../firebase";
 
 export const MoreProjects = () => {
     const [projects, setProjects] = useState([]);
     const [hoveredIndex, setHoveredIndex] = useState(null);
+
+    const [selected, setSelected] = useState(null);
+    const [projectClicked, setProjectClicked] = useState(false)
+
+    const handleGetProject = async (value) => {
+        const snap = await get(ref(database, `projects/${value}`))
+
+        if (snap.exists()) {
+            setSelected({ id: value, ...snap.val() });
+        } else {
+            console.log("Data for selected project not found.")
+            return null 
+        }
+    }
+
+    const handleOnClick = () => {
+        setProjectClicked((prev) => !prev);
+    }
 
     useEffect(() => {
         const projectsRef = ref(database, "projects");
@@ -42,7 +60,8 @@ export const MoreProjects = () => {
                     >
                         {projects.map((project, i) => (
                             <motion.div 
-                                style={{ position: "relative" }}
+                                key={project.id}
+                                style={{ position: "relative", cursor: "pointer" }}
                                 whileHover={{ scale: 1.05 }}
                                 onMouseEnter={() => { 
                                     setHoveredIndex(i);
@@ -50,8 +69,12 @@ export const MoreProjects = () => {
                                 onMouseLeave={() => { 
                                     setHoveredIndex(null);
                                 }}
+                                onClick={() => {
+                                    handleOnClick();
+                                    handleGetProject(project.id);
+                                }}
                             >
-                                <div key={project.id} className="moreprojects-card">
+                                <div className="moreprojects-card">
                                     <div className="moreprojects-card-image container">
                                         <img src={project.Image} alt={project.Title} className="moreprojects-card-image"/>
                                     </div>
@@ -75,6 +98,28 @@ export const MoreProjects = () => {
                             </motion.div>
                         ))}
                     </div>
+                    
+                        {projectClicked && selected && (
+                            <div className="specificproject-card">
+                                <img src="/ArrowUpRight.png" className="specificproject-close-btn" onClick={handleOnClick}/>
+                                <div className="specificproject-grid">
+                                    <div className="specificproject-image container">
+                                        <img src={selected.Image}/>
+                                    </div>
+                                    <div className="specificproject-information">
+                                        <h1 className="specificproject-title">{selected.Title}</h1>  
+                                        <h2 className="specificproject-status">{selected.Status}</h2>  
+                                        <p className="specificproject-description">{selected.Description}</p> 
+                                        <div className="specificproject-languages">
+                                            {selected.Languages.map((lang, idx) => (
+                                                <p key={idx} className="specificproject-languages-text">{lang}</p>
+                                            ))}
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    
                 </div>
             </div>
         </motion.section>

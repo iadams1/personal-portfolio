@@ -1,11 +1,14 @@
+import { ref } from "firebase/database";
+import { database } from "../../firebase";
 
-export const [id] = () => {
-    const [projectID, setProjectID] = useState()
-    const [projectClicked, setProjectClicked] = useState<Boolean>(true)
-    
-    const handleOnClick = () => {
-        setProjectClicked((prev) => !prev);
-    };
+export default function ProjectDetails () {
+
+    async function getProject(id) {
+        const projectRef = ref(database, `projects/${id}`)
+        const snapshot = await get(projectRef)
+
+        if (snapshot.exists()) return; 
+    }
 
     return <></>;
 }

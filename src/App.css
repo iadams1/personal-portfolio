@@ -771,7 +771,6 @@
     .moreprojects-content {
       flex: 1;
       text-align: center;
-      max-width: 645px;
       position: relative;
       z-index: 2;
       line-height: 40px;
@@ -881,6 +880,93 @@
     .moreproject-languages-extras {
       font-weight: var(--regular);
       font-size: 17px;
+    }
+
+    /* Specific Project Sectiomn */
+    .specificproject-card {
+      background-color: #00000078;
+      backdrop-filter: blur(16px);
+      width: 140vh;
+      height: 750px;
+      display: flex;
+      position: fixed;
+      justify-self: center;
+      border-radius: 20px;
+      z-index: 10;
+      bottom: 1100px;
+    }
+
+    .specificproject-close-btn {
+      width: 48px;
+      height: 48px;
+      position: relative;
+      left: 1280px;
+      top: 10px;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .specificproject-grid {
+      display: grid;
+      gap: 30px;
+    }
+
+    .specificproject-image.container {
+      grid-column: 1;
+      width: 550px;
+      height: 670px;
+      overflow: hidden; 
+      display:inline-block;
+      border-radius: 10px;
+      align-self: center;
+    }
+
+    .specificproject-information {
+      grid-column: 2;
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      text-align: left;
+      padding-right: 40px;
+    }
+
+    .specificproject-title {
+        color: #fefefe;
+        font-weight: var(--semibold);
+        text-transform: uppercase;
+        font-size: 35px;
+    }
+
+    .specificproject-status {
+      color: #fefefeb3;
+      font-weight: var(--regular);
+      font-style: italic;
+      font-size: 26px;
+      padding-bottom: 33px;
+    }
+
+    .specificproject-description {
+      line-height: 26px;
+      font-weight: var(--medium);
+      font-size: 18px;
+      padding-bottom: 33px;
+    }
+
+    .specificproject-languages {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      flex-direction: row;
+      gap: 7px;
+      white-space: nowrap;
+    }
+
+    .specificproject-languages-text {
+      display: inline-block;   
+      background: linear-gradient(-35deg, #ffffff00 30%, #383838);
+      border-radius: 999999px;
+      white-space: nowrap;  
+      padding: 3px 14px; 
+      font-weight: var(--medium);
     }
 
   /* Contact Section */
