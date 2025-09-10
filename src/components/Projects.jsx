@@ -1,15 +1,12 @@
-import { useState } from "react";
 import { LatestProjects } from "./project-components/LatestProjects"
 import { MoreProjects } from "./project-components/MoreProjects";
 
-
-export const Projects = () => {
+export const Projects = ({ onSelectProject }) => {
     return (
         <>
             {/* Projects Pages */}
-            <LatestProjects />
-            <MoreProjects />
-            
+            <LatestProjects onSelectProject={onSelectProject}/>
+            <MoreProjects onSelectProject={onSelectProject}/>
         </>    
     );
 };

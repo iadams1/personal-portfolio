@@ -30,8 +30,13 @@
     color: var(--text-color);
     background-image: url("/appbackground.png");
     background-position: center;
-    background-size: 120%;
-    background-attachment: fixed;
+    background-size: cover;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+  }
+
+  body.overlay-open {
+    overflow: hidden;
   }
 
   .app {
@@ -173,17 +178,19 @@
     padding: 0 5%;
     position: relative;
     overflow: hidden;
+    justify-content: center;
   }
 
   .hero-container {
     display: flex;
     justify-content: center;
-    align-self: center;
+    align-items: center;
     gap: 4rem;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
     padding-top: 100px;
+    flex-direction: column;
   }
 
   .hero-content {
@@ -194,7 +201,6 @@
     align-items: flex-start;
     gap: 0.5rem;
     line-height: 1.2;
-    left: 80%;
     scale: 1.2;
   }
 
@@ -795,7 +801,7 @@
     }
 
     .moreprojects-card {
-      width: 40vh;
+      width: 380px;
       background-color: #00000078;
       backdrop-filter: blur(6px);
       padding: 14px;
@@ -803,6 +809,7 @@
       height: auto;
       display: flex;
       flex-direction: column;
+      flex-shrink: 0;
     }
 
     .moreprojects-card-border {
@@ -886,14 +893,16 @@
     .specificproject-card {
       background-color: #00000078;
       backdrop-filter: blur(16px);
-      width: 140vh;
+      width: 90%;
+      max-width: 1350px;
       height: 750px;
       display: flex;
       position: fixed;
-      justify-self: center;
       border-radius: 20px;
-      z-index: 10;
-      bottom: 1100px;
+      z-index: 9999;
+      overflow-y: auto;
+      top: 30%;
+      left: 30%;
     }
 
     .specificproject-close-btn {

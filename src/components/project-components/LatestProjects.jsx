@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { ref, onValue } from "firebase/database";
 import { database } from "../../firebase";
 
-export const LatestProjects = () => {
+export const LatestProjects = ({onSelectProject}) => {
     const [projects, setProjects] = useState([]);
     const [step, setStep] = useState(0);
     const intervalRef = useRef();
@@ -86,7 +86,10 @@ export const LatestProjects = () => {
                         </div>
                         <div className="latestprojects-projects">
                             {projects.map((project, i) => (
-                                <div style={{ position: "relative" }}>
+                                <div 
+                                    style={{ position: "relative" }}
+                                    onClick={() => onSelectProject(project)}
+                                >
                                     <motion.div 
                                         key={project.id} 
                                         className="latestproject-card"
@@ -141,3 +144,5 @@ export const LatestProjects = () => {
         </motion.section>
     );
 };
+
+export default LatestProjects;

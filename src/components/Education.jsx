@@ -26,7 +26,7 @@ export const Education = () => {
                         >
                             <h1 className="education-grid-heading">Arkansas Tech University</h1>
                             <h2 className="education-grid-title">Associate of Applied Science in Information Technology</h2>
-                            <span className="education-grid-text">Aug 2022 - Dec 2024</span>
+                            <span className="education-grid-text">Dec 2024</span>
                         </motion.div>
                         <motion.div 
                             className="education-grid-3"

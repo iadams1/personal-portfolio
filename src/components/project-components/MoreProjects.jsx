@@ -3,27 +3,9 @@ import { useState, useEffect, useRef } from "react";
 import { ref, onValue, get } from "firebase/database";
 import { database } from "../../firebase";
 
-export const MoreProjects = () => {
+export const MoreProjects = ({onSelectProject}) => {
     const [projects, setProjects] = useState([]);
     const [hoveredIndex, setHoveredIndex] = useState(null);
-
-    const [selected, setSelected] = useState(null);
-    const [projectClicked, setProjectClicked] = useState(false)
-
-    const handleGetProject = async (value) => {
-        const snap = await get(ref(database, `projects/${value}`))
-
-        if (snap.exists()) {
-            setSelected({ id: value, ...snap.val() });
-        } else {
-            console.log("Data for selected project not found.")
-            return null 
-        }
-    }
-
-    const handleOnClick = () => {
-        setProjectClicked((prev) => !prev);
-    }
 
     useEffect(() => {
         const projectsRef = ref(database, "projects");
@@ -48,7 +30,7 @@ export const MoreProjects = () => {
     return (
         <motion.section id="projects" 
             className="moreprojects" 
-            inital={{ opacity: 0 }} 
+            initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
         >
@@ -69,10 +51,7 @@ export const MoreProjects = () => {
                                 onMouseLeave={() => { 
                                     setHoveredIndex(null);
                                 }}
-                                onClick={() => {
-                                    handleOnClick();
-                                    handleGetProject(project.id);
-                                }}
+                                onClick={() => onSelectProject(project)}
                             >
                                 <div className="moreprojects-card">
                                     <div className="moreprojects-card-image container">
@@ -98,30 +77,10 @@ export const MoreProjects = () => {
                             </motion.div>
                         ))}
                     </div>
-                    
-                        {projectClicked && selected && (
-                            <div className="specificproject-card">
-                                <img src="/ArrowUpRight.png" className="specificproject-close-btn" onClick={handleOnClick}/>
-                                <div className="specificproject-grid">
-                                    <div className="specificproject-image container">
-                                        <img src={selected.Image}/>
-                                    </div>
-                                    <div className="specificproject-information">
-                                        <h1 className="specificproject-title">{selected.Title}</h1>  
-                                        <h2 className="specificproject-status">{selected.Status}</h2>  
-                                        <p className="specificproject-description">{selected.Description}</p> 
-                                        <div className="specificproject-languages">
-                                            {selected.Languages.map((lang, idx) => (
-                                                <p key={idx} className="specificproject-languages-text">{lang}</p>
-                                            ))}
-                                        </div> 
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    
                 </div>
             </div>
         </motion.section>
     );
 };
+
+export default MoreProjects;

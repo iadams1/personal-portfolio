@@ -7,15 +7,29 @@ import { Education } from "./components/Education"
 import { Skills } from "./components/Skills"
 import { Projects } from "./components/Projects"
 import { Contact } from "./components/Contact"
-
+import { ProjectDetails } from './components/project-components/ProjectDetails'
 import { useEffect, useState } from "react";
+
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.classList.add("overlay-open");
+    } else {
+      document.body.classList.remove("overlay-open");
+    }
+  
+    return () => {
+      document.body.classList.remove("overlay-open");
+    }
+  }, [selectedProject]);
 
   return (
     <>
@@ -27,7 +41,7 @@ function App() {
         <AboutMe />
         <Education />
         <Skills />
-        <Projects />
+        <Projects onSelectProject={setSelectedProject}/>
         <Contact />
 
         {/* Footer */}
@@ -40,6 +54,13 @@ function App() {
       {/* Navigation & Sidebar Pages  */}
       <NavBar />
       <Sidebar />
+
+      {selectedProject && (
+          <ProjectDetails 
+              selected={selectedProject}
+              onClose={() => setSelectedProject(null)}
+          />
+      )}
 
     </>
   )
