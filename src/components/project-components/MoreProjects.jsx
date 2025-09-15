@@ -22,7 +22,12 @@ export const MoreProjects = ({onSelectProject}) => {
             const sortedProjects = projectsArray.sort((a, b) => 
                 new Date(b.Date) - new Date(a.Date)
             );
-            setProjects(sortedProjects.slice(3, 99));
+            
+            if (window.innerWidth > 992) {
+                setProjects(sortedProjects.slice(3, 99));
+            } else {
+                setProjects(sortedProjects);
+            }
         }
         });
     }, []);
@@ -36,10 +41,9 @@ export const MoreProjects = ({onSelectProject}) => {
         >
             <div className="moreprojects-container">
                 <div className="moreprojects-content">
-                    <h1 className="moreprojects-title">More Projects</h1>
-                    <div 
-                        className="moreprojects-grid"
-                    >
+                    <h1 className="moreprojects-title desktop">More Projects</h1>
+                    <h1 className="moreprojects-title mobile">All Projects</h1>
+                    <div className="moreprojects-grid">
                         {projects.map((project, i) => (
                             <motion.div 
                                 key={project.id}

@@ -5,8 +5,13 @@ export const Projects = ({ onSelectProject }) => {
     return (
         <>
             {/* Projects Pages */}
-            <LatestProjects onSelectProject={onSelectProject}/>
-            <MoreProjects onSelectProject={onSelectProject}/>
+            <div class="desktop-only">
+                <LatestProjects onSelectProject={onSelectProject}/>
+                <MoreProjects onSelectProject={onSelectProject}/>
+            </div>
+            <div class="mobile-only">
+                <MoreProjects onSelectProject={onSelectProject}/>
+            </div>
         </>    
     );
 };

@@ -26,7 +26,7 @@ export const Skills = () => {
                             <h2 className="skills-text">SQL, Git/Github</h2>
                         </div>
                         <div className="skills-grid-other">
-                            <h1 className="skills-title">Others</h1>
+                            <h1 className="skills-title other">Others</h1>
                             <h2 className="skills-text-other">
                                 Agile Development Cycle, Software Development Life Cycle (SDLC), 
                                 Figma, Problem-Solving, Critical Thinking, Team Collaboration, Communication

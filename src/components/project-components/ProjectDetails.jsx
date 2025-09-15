@@ -8,10 +8,10 @@ export const ProjectDetails = ({ selected, onClose }) => {
     return (
         <div className="specificproject-container">
             <div className="specificproject-card">
-                <img src="/ArrowUpRight.png" className="specificproject-close-btn" onClick={onClose}/>
+                <div className="specificproject-close-btn-container"><img src="/ArrowUpRight.png" className="specificproject-close-btn" onClick={onClose}/></div>
                 <div className="specificproject-grid">
                     <div className="specificproject-image container">
-                        <img src={selected.Image}/>
+                        <img src={selected.Image} className="specificproject-image"/>
                     </div>
                     <div className="specificproject-information">
                         <h1 className="specificproject-title">{selected.Title}</h1>  
